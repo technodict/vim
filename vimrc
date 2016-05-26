@@ -52,8 +52,9 @@ set colorcolumn=80
 
 " Aesthetics
 
+let g:solarized_termcolors=256
 colorscheme solarized
-set background=light
+set background=dark
 
 " Mappings and shortcuts
 
