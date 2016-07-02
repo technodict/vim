@@ -8,6 +8,7 @@ execute pathogen#infect()
 
 filetype plugin indent on
 syntax on
+set cursorline
 set shell=/bin/zsh
 set guifont=Menlo:h14
 set nocompatible
@@ -33,6 +34,8 @@ set number
 set relativenumber
 set noundofile
 nnoremap / /\v
+nnoremap j gj
+nnoremap k gk
 vnoremap / /\v
 set ignorecase
 set smartcase
@@ -40,6 +43,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
@@ -53,6 +57,11 @@ set colorcolumn=80
 " Aesthetics
 
 let g:solarized_termcolors=256
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let python_highlight_all = 1
 colorscheme solarized
 set background=dark
 
