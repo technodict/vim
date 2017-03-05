@@ -1,130 +1,71 @@
-" Configuration
+"VIMRC CONFIG"
 
-" Pathogen first
+set nocompatible " for vundle
+filetype off "required for vundle
 
-execute pathogen#infect()
+"set runtime path to include vundle and nitialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Basic Settings
+" let vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
 
-filetype plugin indent on
-syntax on
-set cursorline
-set shell=/bin/zsh
-set guifont=Menlo:h14
-set nocompatible
-set modelines=0
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set encoding=utf-8
-set scrolloff=3
-set autoindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
-set number
-set relativenumber
-set noundofile
-nnoremap / /\v
-nnoremap j gj
-nnoremap k gk
-vnoremap / /\v
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-set wrap
-set linebreak
-set nolist
-set formatoptions=qrn1
-set spell spelllang=en_us
-set colorcolumn=80
+" Space to add plugins
 
-" Aesthetics
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
-let g:solarized_termcolors=256
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-let python_highlight_all = 1
-colorscheme solarized
+
+
+
+
+" All pugins to be added before this line
+call vundle#end() "required
+filetype plugin indent on " required
+
+"...........COLORS.................."
+
 set background=dark
+colorscheme badwolf " awesome colorscheme
+syntax enable "enable syntax processing
 
-" Mappings and shortcuts
+"......SPACES & TABS................"
 
-" Basics
+set tabstop=4 "number of visual spaces per TAB
+set softtabstop=4 "number of spaces in tab while editing
+set expandtab "tabs are spaces
+"........UI Config.................."
 
-inoremap jk <ESC>
-let mapleader = "\<Space>"
+set number  "show line numbers
+set showcmd  "show command in bottom bar
+set cursorline "highlight current line
+filetype indent on " load filetype-speciic indent files
+set wildmenu "visual autocomplete for comand menu
+set lazyredraw "redraw only when you need to
+set showmatch "highlight matching [{()}]
+".......Searching..................."
 
-" Arrows are unvimlike 
+set incsearch " search as characters are entered
+set hlsearch " highlight matches
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+"turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
-" Miscellaneous 
+"............Folding................"
 
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-au FocusLost * :wa
-vnoremap . :norm.<CR>
+set foldenable "enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10 " 10 nested fold max
+nnoremap <space> za
+set foldmethod=indent " fold based on indent level
 
-" Leader shortcuts
+"..............Movement.............."
 
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap <leader>a :Ack
-nnoremap <leader>ft Vatzf
-nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
-nnoremap <leader>q gqip
-nnoremap <leader>v V`]
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <leader>j VipJ
-nnoremap <leader>q gqip
-nnoremap <leader>f 1z=
-nnoremap <leader>s ]s
-nnoremap <leader>u :!git pull website master && git commit -am 'Standard commit.' && git push website master<CR><CR>
-nnoremap <leader>p :!git commit -am 'Standard commit.' && git push origin master<CR><CR>
-nnoremap <leader>d :read !date<CR>
-nnoremap <leader>r :!!<CR>
-nnoremap <leader>m :normal @a
-nnoremap <leader>l :CtrlP<CR>
-nnoremap <leader>nt :NERDTree<CR>
-nnoremap <leader>s :set spell!<CR>
-nnoremap <leader>n :set nonumber!<CR>
-nnoremap <leader>rn :set norelativenumber!<CR>
-nnoremap <leader>c :nohl<CR>
-nnoremap <leader>pa :set nopaste!<CR>
-nnoremap <leader>rc :so $MYVIMRC<CR>
-nnoremap <leader>b :BlogSave publish<CR>
-"nnoremap <leader>r :! /Users/daniel/Documents/whup.sh<CR><CR>
-nnoremap <leader>h :set ft=HTML<CR><CR>
 
-" Control shortcuts
+"..............Airline config........"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+set laststatus=2
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+
