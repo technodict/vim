@@ -14,7 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
+Plugin 'jedi-vim'
+Plugin 'nerdtree'
 
 
 
@@ -34,6 +35,7 @@ syntax enable "enable syntax processing
 set tabstop=4 "number of visual spaces per TAB
 set softtabstop=4 "number of spaces in tab while editing
 set expandtab "tabs are spaces
+set relativenumber " relative line numbering
 "........UI Config.................."
 
 set number  "show line numbers
