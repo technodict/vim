@@ -1,21 +1,21 @@
 "VIMRC CONFIG"
-
+call plug#begin()
 set nocompatible " for vundle
 filetype off "required for vundle
 
 "set runtime path to include vundle and nitialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/omkar/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " Space to add plugins
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jedi-vim'
-Plugin 'nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-script/jedi-vim'
+Plug 'vim-script/nerdtree'
 
 
 
@@ -70,4 +70,4 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 set laststatus=2
 
-
+call plug#end()
