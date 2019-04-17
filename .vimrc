@@ -4,7 +4,7 @@ set nocompatible " for vundle
 filetype off "required for vundle
 
 "set runtime path to include vundle and nitialize
-set rtp+=/home/omkar/.vim/bundle/Vundle.vim
+set rtp+=$PATH/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let vundle manage Vundle
